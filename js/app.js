@@ -3,8 +3,13 @@
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-
-
+let board = [
+  null,null,null,
+  null,null,null,
+  null,null,null
+]
+let turn
+let winner
 
 /*------------------------ Cached Element References ------------------------*/
 
