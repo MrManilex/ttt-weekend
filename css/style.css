@@ -9,7 +9,9 @@ body {
   flex-direction: column;
   text-align: center;
 }
-
+.board {
+  text-align: center;
+}
 section.board {
   display: grid;
   grid-template-rows: repeat(3, 10vmin);
@@ -17,7 +19,6 @@ section.board {
   grid-gap: 0vmin;
   text-align: center;
 }
-
 div {
   border: 3px solid black;
   font-size: 8vmin;
