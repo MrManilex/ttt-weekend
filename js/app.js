@@ -66,7 +66,7 @@ function render(){
     gameStatus.innerText = `O is the winner!!!`
   }
 }
-function handleClick(evt, idx) {
+function handleClick(evt) {
   if (board[(evt.target.id.replace("sq", ""))] === 1 ||
     board[(evt.target.id.replace("sq", ""))] === -1) {
     return 
@@ -74,13 +74,6 @@ function handleClick(evt, idx) {
     return
   }
 }
-// 5.1) Obtain the index of the square that was clicked by:
-	  // 5.1.1) "Extracting" the index from an id assigned to the element in the HTML 
-		// Hint: Each id seems to correspond with an index in our board array. How could these be used if we cleaned them up a bit?
-
-    // 5.2) If the board has a value at the index, immediately return because that square is already taken.
-
-  // 5.3) If winner is not null, immediately return because the game is over.
 
 	// 5.4) Update the board array at the index with the value of turn.
 
