@@ -21,9 +21,10 @@ let currentPlayer, isWinner
 /*------------------------ Cached Element References ------------------------*/
 let boxAll = document.querySelectorAll('.div')
 let gameStatus = document.getElementById('message')
+let boardElement = document.querySelector('.board')
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+boardElement.addEventListener('click', handleClick)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -65,7 +66,10 @@ function render(){
     gameStatus.innerText = `O is the winner!!!`
   }
 }
-
-// 4.1) Define the 8 possible winning combinations as an array of arrays.
-	  // Each array will contain three indexes of the board that make a winner if they hold the same player value. 
-		// If you are having trouble with this step, feel free to check out the winningCombos array in the solution code. +
+function handleClick(){
+  console.log(boardElement)
+}
+// 5.1) Obtain the index of the square that was clicked by:
+	  // 5.1.1) "Extracting" the index from an id assigned to the element in the HTML 
+		// Hint: Each id seems to correspond with an index in our board array. How could these be used if
+		// we cleaned them up a bit?
