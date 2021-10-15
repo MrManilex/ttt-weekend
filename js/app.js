@@ -48,12 +48,15 @@ function render(){
     if (board[idx] === 1){
       square.style.backgroundColor = 'cyan'
       square.innerText = 'X'
+      square.innerText.justifyContent = 'space-around';
     }else if (board[idx] === -1){
       square.style.backgroundColor = 'pink'
       square.innerText = 'O'
+      square.innerText.justifyContent = 'center';
     }else if (board[idx] === null){
       square.style.backgroundColor = ''
       square.innerText = ''
+      square.innerText.justifyContent = 'center'
     }
     }
   )
@@ -76,7 +79,7 @@ function handleClick(evt) {
   }
   board[(evt.target.id.replace("sq", ""))] = currentPlayer
   currentPlayer = currentPlayer * -1
-  let winner = getWinner()
+  getWinner()
   function getWinner(){
     winCondition.forEach(function (array){
       let idxOne = array[0]

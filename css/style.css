@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  display: flex;
 }
 h1{
   color: aliceblue;
@@ -34,4 +35,7 @@ div {
 }
 .board{
   background-color: cadetblue;
+}
+.btn-danger{
+  margin: 20px;
 }
