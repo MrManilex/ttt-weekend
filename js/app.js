@@ -22,10 +22,11 @@ let currentPlayer, isWinner
 let boxAll = document.querySelectorAll('.div')
 let gameStatus = document.getElementById('message')
 let boardElement = document.querySelector('.board')
+let reset = document.querySelector(".reset-btn")
 
 /*----------------------------- Event Listeners -----------------------------*/
 boardElement.addEventListener('click', handleClick)
-
+reset.addEventListener("click", init)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -75,27 +76,28 @@ function handleClick(evt) {
   }
   board[(evt.target.id.replace("sq", ""))] = currentPlayer
   currentPlayer = currentPlayer * -1
+  function getWinner(){
+    winCondition.forEach(function (array){
+      let idxOne = array[0]
+      let idxTwo = array[1]
+      let idxThree = array[2]
+      let sum = Math.abs(board[idxOne] + board[idxTwo] + board[idxThree])
+      if (sum === 3){
+        isWinner = idxOne
+        return idxOne
+      } else if (board.includes(!null)){
+        isWinner = 'T'
+        return
+      } else {
+        return null
+      }
+    })
+    render()
+  }
 }
-function getWinner(){
-  winCondition.forEach(function (array){
-    let idxOne = array[0]
-    let idxTwo = array[1]
-    let idxThree = array[2]
-    let sum = Math.abs(board[idxOne] + board[idxTwo] + board[idxThree])
-    if (sum === 3){
-      return
-    }
-  })
-}
-// //5.6) Set the winner variable if there's a winner by calling a new function: getWinner.
-// 	 // The getWinner function will...
 
-// 	  //5.6.1) There are a couple methods you can use to find out if there is a winner.
-// 	 //  This is the first, more elegant way that takes advantage of the winningCombos array you wrote above in step 4.
-// 	 //  The 5.6.2 step is a little simpler to comprehend, but you'll need to write a lot more code.
-// 	 //  The 5.6.2 step also won't take advantage of the winningCombos array, but using it as a reference will help you build a solution.
-// 	  // Choose only one path.
-		  // 5.6.1.1) Loop through the each of the winning combination arrays defined.
-		  // 5.6.1.2) Total up the three board positions using the three indexes in the current combo.
-		  // 5.6.1.3) Convert the total to an absolute value (convert any negative total to positive).
-		  // 5.6.1.4) If the total equals 3, we have a winner! Set the winner variable to the board's value at the index specified by the first index of that winning combination's array by returning that value.
+// 5.6.3) Next, If there's no winner, check if there's a tie:
+
+		// 5.6.4) Set the winner varible to "T" if there are no more nulls in the board array by returning the string "T".
+	  
+		// 5.6.5) Otherwise return null.
