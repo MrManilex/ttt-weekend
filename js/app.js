@@ -76,28 +76,24 @@ function handleClick(evt) {
   }
   board[(evt.target.id.replace("sq", ""))] = currentPlayer
   currentPlayer = currentPlayer * -1
+  let winner = getWinner()
   function getWinner(){
     winCondition.forEach(function (array){
       let idxOne = array[0]
       let idxTwo = array[1]
       let idxThree = array[2]
+      let theWinner = board[idxOne]
       let sum = Math.abs(board[idxOne] + board[idxTwo] + board[idxThree])
       if (sum === 3){
-        isWinner = idxOne
-        return idxOne
-      } else if (board.includes(!null)){
-        isWinner = 'T'
-        return
-      } else {
+        isWinner = theWinner
+        return theWinner
+      } else if (board.includes(null)){
         return null
+      } else{
+        isWinner = 'T'
+        return isWinner
       }
     })
     render()
   }
 }
-
-// 5.6.3) Next, If there's no winner, check if there's a tie:
-
-		// 5.6.4) Set the winner varible to "T" if there are no more nulls in the board array by returning the string "T".
-	  
-		// 5.6.5) Otherwise return null.
